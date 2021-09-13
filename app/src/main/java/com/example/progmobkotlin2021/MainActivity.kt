@@ -12,6 +12,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var tvMain : TextView
     lateinit var btnInputNama : Button
     lateinit var btnHelp : Button
+    lateinit var btnLinear : Button
+    lateinit var btnConstraint : Button
+    lateinit var btnTable : Button
+    lateinit var btnProtein : Button
+    lateinit var btnDutaTani : Button
     lateinit var edInputNama : EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +28,11 @@ class MainActivity : AppCompatActivity() {
 
         btnInputNama = findViewById(R.id.btn_ambil_nama)
         btnHelp = findViewById(R.id.btn_help)
+        btnLinear = findViewById(R.id.btn_linear)
+        btnConstraint = findViewById(R.id.btn_constraint)
+        btnTable = findViewById(R.id.btn_table)
+        btnProtein = findViewById(R.id.btn_protein)
+        btnDutaTani = findViewById(R.id.btn_duta_tani)
 
         edInputNama = findViewById(R.id.ed_input_nama)
 
@@ -37,6 +47,26 @@ class MainActivity : AppCompatActivity() {
 
             var intent = Intent(this@MainActivity, HelpActivity::class.java)
             intent.putExtras(bundle)
+            startActivity(intent)
+        })
+        btnLinear.setOnClickListener(View.OnClickListener { view ->
+            var intent = Intent(this@MainActivity, TesLinearActivity::class.java)
+            startActivity(intent)
+        })
+        btnConstraint.setOnClickListener(View.OnClickListener { view ->
+            var intent = Intent(this@MainActivity, ConstraintActivity::class.java)
+            startActivity(intent)
+        })
+        btnTable.setOnClickListener(View.OnClickListener { view ->
+            var intent = Intent(this@MainActivity, TableActivity::class.java)
+            startActivity(intent)
+        })
+        btnProtein.setOnClickListener(View.OnClickListener { view ->
+            var intent = Intent(this@MainActivity, ProteinTrackerActivity::class.java)
+            startActivity(intent)
+        })
+        btnDutaTani.setOnClickListener(View.OnClickListener { view ->
+            var intent = Intent(this@MainActivity, DutaTaniActivity::class.java)
             startActivity(intent)
         })
     }

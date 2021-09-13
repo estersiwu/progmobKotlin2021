@@ -10,9 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgmobKotlin2021">
         <activity
+            android:name=".DutaTaniActivity"
+            android:label="@string/title_activity_duta_tani"></activity>
+        <activity android:name=".ProteinTrackerActivity" />
+        <activity android:name=".TableActivity" />
+        <activity android:name=".ConstraintActivity" />
+        <activity android:name=".TesLinearActivity" />
+        <activity
             android:name=".HelpActivity"
-            android:label="Help Activity"
-            ></activity>
+            android:label="Help Activity" />
         <activity
             android:name=".MainActivity"
             android:label="Main Activity">
