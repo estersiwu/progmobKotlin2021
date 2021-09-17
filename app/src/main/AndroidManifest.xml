@@ -9,9 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgmobKotlin2021">
+        <activity android:name=".DaftarLahanPetaniList"></activity>
+        <activity android:name=".SampleListView" />
+        <activity android:name=".SampleList">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".DutaTaniActivity"
-            android:label="@string/title_activity_duta_tani"></activity>
+            android:label="@string/title_activity_duta_tani" />
         <activity android:name=".ProteinTrackerActivity" />
         <activity android:name=".TableActivity" />
         <activity android:name=".ConstraintActivity" />
@@ -21,13 +30,7 @@
             android:label="Help Activity" />
         <activity
             android:name=".MainActivity"
-            android:label="Main Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="Main Activity"></activity>
     </application>
 
 </manifest>
