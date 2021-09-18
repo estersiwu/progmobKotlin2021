@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgmobKotlin2021">
-        <activity android:name=".DaftarLahanPetaniList"></activity>
+        <activity android:name=".SampleRecyclerView"></activity>
         <activity android:name=".SampleListView" />
         <activity android:name=".SampleList">
             <intent-filter>
@@ -30,7 +30,7 @@
             android:label="Help Activity" />
         <activity
             android:name=".MainActivity"
-            android:label="Main Activity"></activity>
+            android:label="Main Activity" />
     </application>
 
 </manifest>

@@ -32,7 +32,6 @@ class SampleListView : AppCompatActivity() {
         inflater.inflate(R.menu.menu_sample_list_view, menu)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sample_list_view)
