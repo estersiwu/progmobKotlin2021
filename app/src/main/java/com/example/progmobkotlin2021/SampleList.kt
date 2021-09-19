@@ -13,6 +13,7 @@ import com.example.progmobkotlin2021.model.Petani
 class SampleList : AppCompatActivity() {
     lateinit var btnShowList : Button
     lateinit var btnSampleRV : Button
+    lateinit var btnSampleCV : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,7 @@ class SampleList : AppCompatActivity() {
 
         btnShowList = findViewById(R.id.btnShowList)
         btnSampleRV = findViewById(R.id.btnSampleRV)
+        btnSampleCV = findViewById(R.id.btnSampleCV)
 
         btnShowList.setOnClickListener(View.OnClickListener { view ->
             var intent = Intent(this@SampleList, SampleListView::class.java)
@@ -28,6 +30,11 @@ class SampleList : AppCompatActivity() {
 
         btnSampleRV.setOnClickListener(View.OnClickListener { view ->
             var intent = Intent(this@SampleList, SampleRecyclerView::class.java)
+            startActivity(intent)
+        })
+
+        btnSampleCV.setOnClickListener(View.OnClickListener { view ->
+            var intent = Intent(this@SampleList, SampleCardView::class.java)
             startActivity(intent)
         })
     }
