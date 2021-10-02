@@ -28,10 +28,10 @@ class PetaniAdapter(val petani: List<Petani>): RecyclerView.Adapter<PetaniAdapte
         fun bindPetani(petani: Petani) {
             itemView.apply {
                 txtUser = findViewById(R.id.txtUser)
-                txtNama = findViewById(R.id.txtNama)
-                txtJumlahLahan = findViewById(R.id.txtJumlahLahan)
-                txtIdentifikasi = findViewById(R.id.txtIdentifikasi)
-                txtTambahLahan = findViewById(R.id.txtTambahLahan)
+                txtNama = findViewById(R.id.notelp)
+                txtJumlahLahan = findViewById(R.id.nama)
+                txtIdentifikasi = findViewById(R.id.email)
+                txtTambahLahan = findViewById(R.id.email)
 
                 txtUser.text = petani.user
                 txtNama.text = petani.nama
