@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgmobKotlin2021">
-        <activity android:name=".GetAPIActivity"></activity>
+        <activity android:name=".crud.GetPetaniActivity"></activity>
+        <activity android:name=".GetAPIActivity" />
         <activity android:name=".ServiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

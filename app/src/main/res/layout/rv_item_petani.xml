@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="nama"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/jumlah_lahan"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nama" />
+
+    <TextView
+        android:id="@+id/kelurahan"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="kelurahan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jumlah_lahan" />
+
+    <TextView
+        android:id="@+id/alamat"
+        android:layout_width="440dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="alamat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kelurahan" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
