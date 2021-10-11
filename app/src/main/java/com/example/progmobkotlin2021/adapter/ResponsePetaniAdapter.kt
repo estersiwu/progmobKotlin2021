@@ -1,15 +1,24 @@
 package com.example.progmobkotlin2021.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.progmobkotlin2021.R
+import com.example.progmobkotlin2021.crud.GetPetaniActivity
 import com.example.progmobkotlin2021.model.Petani
+import com.example.progmobkotlin2021.model.ResponseItem
+import com.example.progmobkotlin2021.network.NetworkConfig
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ResponsePetaniAdapter(var petani: List<DataItem>?): RecyclerView.Adapter<ResponsePetaniAdapter.PetaniHolder>() {
     lateinit var mContext: Context
@@ -25,16 +34,45 @@ class ResponsePetaniAdapter(var petani: List<DataItem>?): RecyclerView.Adapter<R
     override fun onBindViewHolder(holder: ResponsePetaniAdapter.PetaniHolder, position: Int) {
         holder.bindPetani(petani?.get(position))
         var popupMenu = PopupMenu(holder.itemView.context, holder.itemView)
-        popupMenu.menu.add(Menu.NONE,0,0,"Edit")
-        popupMenu.menu.add(Menu.NONE,1,1,"Delete")
+        popupMenu.menu.add(Menu.NONE, 0, 0, "Edit")
+        popupMenu.menu.add(Menu.NONE, 1, 1, "Delete")
         popupMenu.setOnMenuItemClickListener { menuItem ->
             val id = menuItem.itemId
             mContext = holder.itemView.context
-            if (id==0){
+            if (id == 0) {
                 var bundle()
                 var idTmp = petani?.get(position)?.id.toString()
+
+                bundle.putString("idPetani", idTmp)
+                var intent = Intent(mContext, UpdatePetaniActivity::class.java)
+                intent.putExtras(bundle)
+                mContext.startActivity(intent)
+            } else if (id == 1) {
+                var idTmp = petani?.get(position)?.id.toString()
+                NetworkConfig().getService()
+                        .deletePetani(idTmp.toInt())
+                        .enqueue(object : Callback<List<ResponseAddPetani>> {
+                            override fun onFailure(call: Call<List<ResponseAddPetani>>, t: Throwable) {
+                                Toast.makeText(holder.itemView.context, t.localizedMessage, Toast.LENGTH_SHORT).show()
+                            }
+
+                            override fun onResponse(
+                                    call: Call<List<ResponseAddPetani>>,
+                                    response: Response<List<ResponseAddPetani>>
+                            ) {
+                                Toast.makeText(holder.itemView.context, "Berhasil Hapus Data", Toast.LENGTH_SHORT).show()
+
+                                (mContext as GetPetaniActivity).finish()
+                                var intent = Intent(mContext, GetPetaniActivity::class.java)
+                                mContext.startActivity(intent)
+                            }
+                        })
             }
+            false
         }
+        holder.itemView.setOnClickListener(View.OnClickListener { view ->
+            popupMenu.show()
+        })
     }
 
     override fun getItemCount(): Int {

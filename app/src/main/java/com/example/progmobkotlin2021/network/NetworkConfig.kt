@@ -20,7 +20,8 @@ class NetworkConfig {
     }
     fun getRetrofit() : Retrofit {
         return Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
+                //.baseUrl("https://jsonplaceholder.typicode.com/")
+                .baseUrl("https://192.168.43.17/slim-ester/public")
                 .client(getInterceptor())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
