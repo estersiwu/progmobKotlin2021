@@ -11,15 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgmobKotlin2021">
-        <activity android:name=".crud.GetPetaniActivity"></activity>
-        <activity android:name=".GetAPIActivity" />
-        <activity android:name=".ServiceActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".crud.UpdatePetaniActivity" />
+        <activity android:name=".crud.AddPetaniActivity" />
+        <activity android:name=".crud.GetPetaniActivity">
+
+        </activity>
+        <activity android:name=".GetAPIActivity" />
+        <activity android:name=".ServiceActivity" />
         <activity android:name=".SampleCardView" />
         <activity android:name=".SampleRecyclerView" />
         <activity android:name=".SampleListView" />

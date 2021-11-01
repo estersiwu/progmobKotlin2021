@@ -2,6 +2,7 @@ package com.example.progmobkotlin2021.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
@@ -13,7 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.progmobkotlin2021.R
 import com.example.progmobkotlin2021.crud.GetPetaniActivity
+import com.example.progmobkotlin2021.crud.UpdatePetaniActivity
+import com.example.progmobkotlin2021.model.DataItem
 import com.example.progmobkotlin2021.model.Petani
+import com.example.progmobkotlin2021.model.ResponseAddPetani
 import com.example.progmobkotlin2021.model.ResponseItem
 import com.example.progmobkotlin2021.network.NetworkConfig
 import retrofit2.Call
@@ -40,7 +44,7 @@ class ResponsePetaniAdapter(var petani: List<DataItem>?): RecyclerView.Adapter<R
             val id = menuItem.itemId
             mContext = holder.itemView.context
             if (id == 0) {
-                var bundle()
+                var bundle = Bundle()
                 var idTmp = petani?.get(position)?.id.toString()
 
                 bundle.putString("idPetani", idTmp)
@@ -51,14 +55,14 @@ class ResponsePetaniAdapter(var petani: List<DataItem>?): RecyclerView.Adapter<R
                 var idTmp = petani?.get(position)?.id.toString()
                 NetworkConfig().getService()
                         .deletePetani(idTmp.toInt())
-                        .enqueue(object : Callback<List<ResponseAddPetani>> {
-                            override fun onFailure(call: Call<List<ResponseAddPetani>>, t: Throwable) {
+                        .enqueue(object : Callback<ResponseAddPetani?> {
+                            override fun onFailure(call: Call<ResponseAddPetani?>, t: Throwable) {
                                 Toast.makeText(holder.itemView.context, t.localizedMessage, Toast.LENGTH_SHORT).show()
                             }
 
                             override fun onResponse(
-                                    call: Call<List<ResponseAddPetani>>,
-                                    response: Response<List<ResponseAddPetani>>
+                                    call: Call<ResponseAddPetani?>,
+                                    response: Response<ResponseAddPetani?>
                             ) {
                                 Toast.makeText(holder.itemView.context, "Berhasil Hapus Data", Toast.LENGTH_SHORT).show()
 
@@ -76,7 +80,7 @@ class ResponsePetaniAdapter(var petani: List<DataItem>?): RecyclerView.Adapter<R
     }
 
     override fun getItemCount(): Int {
-        return petani?.size ? : 0
+        return petani?.size ?: 0
     }
 
     class PetaniHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -92,10 +96,10 @@ class ResponsePetaniAdapter(var petani: List<DataItem>?): RecyclerView.Adapter<R
                 txtAlamat = findViewById(R.id.alamat)
                 txtKelurahan = findViewById(R.id.kelurahan)
 
-                txtNama.text = petani.nama
-                txtJumlahLahan.text = petani.jumlahLahan
-                txtAlamat.text = petani.alamat
-                txtKelurahan.text = petani.kelurahan
+                txtNama.text = petani?.nama
+                txtJumlahLahan.text = petani?.jumlahLahan
+                txtAlamat.text = petani?.alamat
+                txtKelurahan.text = petani?.kelurahan
             }
         }
     }
